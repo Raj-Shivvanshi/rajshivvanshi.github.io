@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+    EASY EDIT GUIDE — NO CODING NEEDED
+    ============================================================
+    This file is a single HTML page. To edit it, open in any text
+    editor (Notepad, TextEdit, VS Code, Sublime Text) and use
+    Ctrl+F (or Cmd+F on Mac) to find the section you want to change.
+
+    Every editable piece is marked with:   <!-- EDIT: ... -->
+    Just change the text between the tags.
+
+    To open the site: double-click this file in your file explorer.
+    It will open in your default browser.
+    ============================================================ -->
+
+  <!-- EDIT: Change the browser tab title below -->
+  <title>Raj Shivvanshi — Finance Scriptwriter & Strategist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       COLOUR VARIABLES — EDIT THESE TO CHANGE THE WHOLE PALETTE
+       ============================================================ */
+    :root {
+      --bg:          #0B0B0B;       /* main background */
+      --bg2:         #131313;       /* card/section background */
+      --bg3:         #1A1A1A;       /* subtle inset background */
+      --amber:       #F59E0B;       /* primary accent — amber/gold */
+      --amber-dim:   #92610A;       /* dimmer amber for borders */
+      --red:         #E84040;       /* secondary accent — used for view counts */
+      --white:       #F5F0E8;       /* body text */
+      --muted:       #8A8070;       /* muted/secondary text */
+      --line:        #222222;       /* border / divider colour */
+      --mono:        'Courier New', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ---- TYPOGRAPHY ---- */
+    .display {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+    }
+
+    h1, h2, h3 { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+
+    a { color: var(--amber); text-decoration: none; transition: opacity .2s; }
+    a:hover { opacity: .75; }
+
+    /* ---- LAYOUT ---- */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    section { padding: 100px 0; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+      margin-bottom: 18px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(11, 11, 11, .85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -.02em;
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--white); opacity: 1; }
+
+    .nav-cta {
+      background: var(--amber);
+      color: #000 !important;
+      padding: 9px 22px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: .04em;
+      transition: background .2s !important;
+    }
+
+    .nav-cta:hover { background: #d48e08 !important; opacity: 1 !important; }
+
+    /* ---- HERO ---- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+    }
+
+    .hero-grid-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--line);
+      opacity: .5;
+    }
+
+    .hero-grid-line:nth-child(1) { left: 25%; }
+    .hero-grid-line:nth-child(2) { left: 50%; }
+    .hero-grid-line:nth-child(3) { left: 75%; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 28px;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+      margin-bottom: 36px;
+      padding: 8px 16px;
+      border: 1px solid var(--amber-dim);
+      border-radius: 2px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.8); }
+    }
+
+    /* EDIT: Change the main headline below — find "300 Scripts" in this file */
+    .hero-headline {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(52px, 8vw, 108px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -.04em;
+      margin-bottom: 36px;
+      max-width: 900px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 52px;
+      font-weight: 300;
+    }
+
+    .hero-sub strong { color: var(--white); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: #000;
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #d48e08;
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 15px 34px;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--muted); color: var(--white); opacity: 1; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ---- STATS BAR ---- */
+    #stats {
+      padding: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 52px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.03em;
+      color: var(--amber);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: .02em;
+    }
+
+    /* ---- ABOUT ---- */
+    #about { border-bottom: 1px solid var(--line); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-heading {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 32px;
+    }
+
+    .about-heading span { color: var(--amber); font-style: italic; }
+
+    .about-body {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .about-body strong { color: var(--white); font-weight: 500; }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .tag {
+      padding: 6px 16px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .cred-item {
+      padding: 28px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      border-left: 3px solid var(--amber);
+    }
+
+    .cred-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+
+    .cred-sub {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    .cred-meta {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+    }
+
+    /* ---- WORK — VIDEO SHOWCASE ---- */
+    #work { border-bottom: 1px solid var(--line); }
+
+    .work-heading {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .work-heading span { color: var(--amber); font-style: italic; }
+
+    .work-intro {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 640px;
+      margin-bottom: 64px;
+      font-weight: 300;
+    }
+
+    .channel-block {
+      margin-bottom: 80px;
+    }
+
+    .channel-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .channel-name {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .channel-badge {
+      padding: 5px 14px;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Shorts grid — vertical 9:16 players */
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .short-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .short-embed {
+      width: 100%;
+      aspect-ratio: 9/16;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+    }
+
+    .short-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .short-info { padding: 0 4px; }
+
+    .short-title {
+      font-family: 'Fraunces', serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
+    }
+
+    .short-views {
+      font-size: 12px;
+      font-family: var(--mono);
+      color: var(--red);
+      letter-spacing: .06em;
+      font-weight: 600;
+    }
+
+    /* Long-form video grid */
+    .longform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .video-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--bg3);
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .video-info { padding: 20px; }
+
+    .video-title {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+      margin-bottom: 6px;
+    }
+
+    .video-channel {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+    }
+
+    /* ---- SCRIPTS SECTION ---- */
+    #scripts { border-bottom: 1px solid var(--line); }
+
+    .scripts-heading {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .scripts-heading span { color: var(--amber); font-style: italic; }
+
+    .scripts-intro {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 640px;
+      margin-bottom: 64px;
+      font-weight: 300;
+    }
+
+    .scripts-category { margin-bottom: 64px; }
+
+    .scripts-cat-title {
+      font-size: 11px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scripts-cat-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .scripts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .script-card {
+      padding: 32px;
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: border-color .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .script-card:hover {
+      border-color: var(--amber-dim);
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    .script-card-type {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      font-family: var(--mono);
+    }
+
+    .script-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -.02em;
+    }
+
+    .script-card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .script-card-arrow {
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--amber);
+      font-weight: 600;
+      letter-spacing: .04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .script-card-arrow::after {
+      content: '→';
+      transition: transform .2s;
+    }
+
+    .script-card:hover .script-card-arrow::after {
+      transform: translateX(4px);
+    }
+
+    /* ---- WHY ME ---- */
+    #why {
+      border-bottom: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .why-item {
+      padding: 48px 36px;
+      background: var(--bg);
+      transition: background .2s;
+    }
+
+    .why-item:hover { background: var(--bg3); }
+
+    .why-number {
+      font-family: 'Fraunces', serif;
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--amber);
+      opacity: .15;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -.04em;
+    }
+
+    .why-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -.02em;
+    }
+
+    .why-desc {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ---- MARKETS ---- */
+    .markets-bar {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    .market-tag {
+      padding: 10px 22px;
+      border: 1px solid var(--amber-dim);
+      color: var(--amber);
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 4px;
+      font-family: var(--mono);
+    }
+
+    /* ---- CONTACT ---- */
+    #contact { background: var(--bg); }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-headline {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+
+    .contact-headline span { color: var(--amber); font-style: italic; }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 300;
+      margin-bottom: 52px;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-link-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .contact-item:hover { color: var(--white); opacity: 1; }
+
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .contact-cta {
+      margin-top: 52px;
+      display: inline-block;
+      background: var(--amber);
+      color: #000;
+      padding: 18px 48px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background .2s, transform .15s;
+    }
+
+    .contact-cta:hover {
+      background: #d48e08;
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-name {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: var(--muted);
+      opacity: .6;
+    }
+
+    /* ---- ANIMATIONS ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--line); padding: 36px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .shorts-grid { grid-template-columns: repeat(2, 1fr); }
+      .longform-grid { grid-template-columns: 1fr; }
+      .scripts-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 1px; }
+      section { padding: 72px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-headline { font-size: 44px; letter-spacing: -.03em; }
+      .shorts-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+       NAVIGATION
+       EDIT: Change your name in the logo and the mailto link in the CTA
+       ================================================================ -->
+  <nav>
+    <a href="#hero" class="nav-logo">Raj <span>Shivvanshi</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- EDIT: Change email address in the mailto link below -->
+    <a href="mailto:shivvanshiraj@gmail.com" class="nav-cta">Hire Me</a>
+  </nav>
+
+
+  <!-- ================================================================
+       HERO SECTION
+       EDIT: Change the headline, subheadline, and button links below
+       ================================================================ -->
+  <section id="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-grid-line"></div>
+    <div class="hero-grid-line"></div>
+    <div class="hero-grid-line"></div>
+
+    <div class="hero-inner">
+
+      <!-- EDIT: Change the eyebrow tagline below -->
+      <div class="hero-eyebrow">Finance Scriptwriter & Content Strategist</div>
+
+      <!-- EDIT: Change the main headline below -->
+      <h1 class="hero-headline display">
+        300 Scripts.<br>
+        10 Million Views.<br>
+        <em>Zero Filler.</em>
+      </h1>
+
+      <!-- EDIT: Change the subheadline paragraph below -->
+      <p class="hero-sub">
+        I write finance and business scripts that <strong>people actually finish watching</strong>.
+        I've done it for India's biggest finance channels. Now I'm bringing the same
+        research-first, story-led approach to <strong>US &amp; UK creators and newsrooms</strong>.
+      </p>
+
+      <div class="hero-actions">
+        <!-- EDIT: Change link destinations below -->
+        <a href="#work" class="btn-primary">See My Work</a>
+        <a href="#scripts" class="btn-ghost">Read Sample Scripts</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+
+  <!-- ================================================================
+       STATS BAR
+       EDIT: Change the numbers and labels
+       ================================================================ -->
+  <div id="stats">
+    <div class="stats-grid container" style="max-width:100%;">
+      <!-- EDIT: Change stat numbers and labels -->
+      <div class="stat-item">
+        <div class="stat-number">300+</div>
+        <div class="stat-label">Finance scripts written</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">Views generated across channels</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Videos hosted on camera</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================================================
+       ABOUT SECTION
+       EDIT: Change bio text, credential cards, and tags
+       ================================================================ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div>
+          <p class="section-label">About</p>
+          <!-- EDIT: Change heading -->
+          <h2 class="about-heading">
+            I translate <span>complexity</span> into content people share.
+          </h2>
+
+          <!-- EDIT: Change bio paragraphs below -->
+          <p class="about-body">
+            Most finance content is technically correct and completely forgettable. I write scripts
+            that are both — accurate <em>and</em> watchable. The kind where someone stops scrolling
+            and stays till the end.
+          </p>
+          <p class="about-body">
+            I spent years writing for <strong>FinnovationZ</strong> (2.64M+ subscribers), one of
+            India's most-followed finance channels — handling everything from Shorts that crossed
+            3 million views to long-form deep dives on Indian business and markets. I also ran
+            <strong>DreamJob by FinnovationZ</strong> (140K+ subscribers) end-to-end, including
+            scripting, research and on-camera presentation.
+          </p>
+          <p class="about-body">
+            Beyond India, I've written <strong>Finance Explainers and Newsroom-style pieces</strong>
+            for US and UK audiences — covering everything from Big Tech earnings cycles to the
+            psychology of homeownership.
+          </p>
+
+          <!-- EDIT: Change tags to match your skill set -->
+          <div class="about-tags">
+            <span class="tag">Finance Scripting</span>
+            <span class="tag">Stock Market</span>
+            <span class="tag">Business Storytelling</span>
+            <span class="tag">Research-First</span>
+            <span class="tag">Short-form & Long-form</span>
+            <span class="tag">On-Camera Host</span>
+            <span class="tag">India Markets</span>
+            <span class="tag">US / UK Audiences</span>
+          </div>
+        </div>
+
+        <div class="credentials">
+          <!-- EDIT: Change credential cards — title, subtitle and meta line -->
+          <div class="cred-item">
+            <div class="cred-title">FinnovationZ by Prasad</div>
+            <div class="cred-sub">
+              India's leading personal finance &amp; stock market YouTube channel.
+              Wrote scripts across formats — Shorts, explainers, market breakdowns.
+            </div>
+            <span class="cred-meta">2.64M+ Subscribers · Multiple 1M+ View Videos</span>
+          </div>
+
+          <div class="cred-item">
+            <div class="cred-title">DreamJob by FinnovationZ</div>
+            <div class="cred-sub">
+              Managed the sister channel end-to-end: scriptwriting, research,
+              content strategy, and on-camera hosting.
+            </div>
+            <span class="cred-meta">140K+ Subscribers · Full Channel Ownership</span>
+          </div>
+
+          <div class="cred-item">
+            <div class="cred-title">US &amp; UK Finance Creators</div>
+            <div class="cred-sub">
+              Finance Explainers and Newsroom-style scripts written for international
+              markets — covering tech stocks, real estate, consumer psychology, and luxury.
+            </div>
+            <span class="cred-meta">Global Markets · Research-Heavy Formats</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       WORK — VIDEO SHOWCASE
+       EDIT: To change video titles or view counts, find them below.
+             To swap a video, change the YouTube video ID inside the
+             src="https://www.youtube.com/embed/VIDEO_ID_HERE" attribute.
+       ================================================================ -->
+  <section id="work">
+    <div class="container">
+
+      <p class="section-label">Work</p>
+      <!-- EDIT: Change heading and intro -->
+      <h2 class="work-heading">Videos I <span>wrote</span> &amp; hosted.</h2>
+      <p class="work-intro">
+        Real numbers from real channels. Every video below is a script I wrote — some I
+        also hosted on camera.
+      </p>
+
+      <!-- ======================================================
+           CHANNEL 1 — FINNOVATIONZ (SHORTS)
+           ====================================================== -->
+      <div class="channel-block fade-in">
+        <div class="channel-header">
+          <!-- EDIT: Change channel name and subscriber count -->
+          <span class="channel-name">FinnovationZ by Prasad</span>
+          <span class="channel-badge">2.64M+ Subscribers</span>
+        </div>
+
+        <div class="shorts-grid">
+
+          <!-- SHORT 1 -->
+          <!-- EDIT: Change title, views, and video ID (MMfReTiZPdc) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/MMfReTiZPdc"
+                title="FinnovationZ Short — 2M+ Views"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <!-- EDIT: Update title and view count below -->
+              <div class="short-title">Finance Short · FinnovationZ</div>
+              <div class="short-views">▲ 2,000,000+ views</div>
+            </div>
+          </div>
+
+          <!-- SHORT 2 -->
+          <!-- EDIT: Change title, views, and video ID (aJOmFtKJLYs) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/aJOmFtKJLYs"
+                title="The Muthoot Finance Story"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <div class="short-title">The Muthoot Finance Story</div>
+              <div class="short-views">▲ 1,400,000+ views</div>
+            </div>
+          </div>
+
+          <!-- SHORT 3 -->
+          <!-- EDIT: Change title, views, and video ID (0sNSfh6VLQ4) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/0sNSfh6VLQ4"
+                title="The SBI Scam"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <div class="short-title">The SBI Scam</div>
+              <div class="short-views">▲ 1M+ views</div>
+            </div>
+          </div>
+
+          <!-- SHORT 4 -->
+          <!-- EDIT: Change title, views, and video ID (CIhxfBEP5zY) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/CIhxfBEP5zY"
+                title="The Bihar Story"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <div class="short-title">The Bihar Story</div>
+              <div class="short-views">▲ 3,000,000+ views</div>
+            </div>
+          </div>
+
+        </div><!-- /shorts-grid -->
+      </div><!-- /channel-block -->
+
+
+      <!-- ======================================================
+           CHANNEL 2 — DREAMJOB BY FINNOVATIONZ
+           ====================================================== -->
+      <div class="channel-block fade-in">
+        <div class="channel-header">
+          <!-- EDIT: Change channel name and subscriber count -->
+          <span class="channel-name">DreamJob by FinnovationZ</span>
+          <span class="channel-badge">140K+ Subscribers · Written &amp; Hosted</span>
+        </div>
+
+        <!-- Two long-form videos -->
+        <div class="longform-grid" style="margin-bottom: 28px;">
+
+          <!-- LONG FORM 1 -->
+          <!-- EDIT: Change title and video ID (owxijHm1e9E) -->
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/owxijHm1e9E"
+                title="DreamJob — Career Finance Feature"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">DreamJob Career Feature</div>
+              <div class="video-channel">Written &amp; hosted · DreamJob by FinnovationZ</div>
+            </div>
+          </div>
+
+          <!-- LONG FORM 2 -->
+          <!-- EDIT: Change title and video ID (0XzSU1mskKQ) -->
+          <div class="video-card">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/0XzSU1mskKQ"
+                title="DreamJob — Career Finance Feature"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="video-info">
+              <div class="video-title">DreamJob Career Feature</div>
+              <div class="video-channel">Written &amp; hosted · DreamJob by FinnovationZ</div>
+            </div>
+          </div>
+
+        </div><!-- /longform-grid -->
+
+        <!-- Two shorts from DreamJob -->
+        <div class="shorts-grid" style="grid-template-columns: repeat(4,1fr);">
+
+          <!-- DREAMJOB SHORT 1 -->
+          <!-- EDIT: Change title and video ID (2ssXrh1XG_I) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/2ssXrh1XG_I"
+                title="DreamJob Short"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <div class="short-title">DreamJob Short</div>
+              <div class="short-views">DreamJob by FinnovationZ</div>
+            </div>
+          </div>
+
+          <!-- DREAMJOB SHORT 2 -->
+          <!-- EDIT: Change title and video ID (eYF6MY6sEvo) -->
+          <div class="short-card">
+            <div class="short-embed">
+              <iframe
+                src="https://www.youtube.com/embed/eYF6MY6sEvo"
+                title="DreamJob Short"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="short-info">
+              <div class="short-title">DreamJob Short</div>
+              <div class="short-views">DreamJob by FinnovationZ</div>
+            </div>
+          </div>
+
+        </div><!-- /shorts-grid (dreamjob) -->
+
+      </div><!-- /channel-block -->
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       SCRIPTS — WRITTEN SAMPLES
+       EDIT: Change script titles, descriptions, and Google Doc links.
+             To update a link, replace the URL inside href="..."
+       ================================================================ -->
+  <section id="scripts">
+    <div class="container">
+
+      <p class="section-label">Script Samples</p>
+      <!-- EDIT: Change heading and intro -->
+      <h2 class="scripts-heading">
+        The writing, <span>up close.</span>
+      </h2>
+      <p class="scripts-intro">
+        These are scripts written for US &amp; UK markets. Research-first, narrative-led — the kind
+        of writing that treats the viewer as someone worth respecting.
+      </p>
+
+      <!-- ---- FINANCE EXPLAINERS ---- -->
+      <div class="scripts-category fade-in">
+        <div class="scripts-cat-title">Finance Explainers</div>
+        <div class="scripts-grid">
+
+          <!-- SCRIPT 1 -->
+          <!-- EDIT: Change title, description, and the href link to your Google Doc -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/1iP_EC6-8rN1iW3oC3a8c7UIJWzxCqQmhmOgmnSiCg-w/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Finance Explainer</div>
+            <div class="script-card-title">
+              Why Big Tech's Stocks Are Not Supporting Their Earnings
+            </div>
+            <div class="script-card-desc">
+              A script that unpacks the earnings-price paradox for retail investors — why growing
+              profits don't always mean growing stock prices, and what most analysts miss.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+          <!-- SCRIPT 2 -->
+          <!-- EDIT: Change title, description, and href link -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/1PmArO3Ejbnn0fn9wi8UFGkKfz6SszW9bRw_UWHEgVGI/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Finance Explainer</div>
+            <div class="script-card-title">
+              The Permanence Tax: Why Buying a House Feels So Heavy
+            </div>
+            <div class="script-card-desc">
+              A deeply personal script on the psychology and hidden economics of homeownership —
+              written for audiences who know the math but can't explain the feeling.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+          <!-- SCRIPT 3 -->
+          <!-- EDIT: Change title, description, and href link -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/1Cqd5PuB73PYC1D0pLzoiC-vWrkIsvVKTRKMJZpI4PyI/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Finance Explainer</div>
+            <div class="script-card-title">
+              Luxury Brands: How a Company Sells ₹2 Lakh Bags
+            </div>
+            <div class="script-card-desc">
+              Breaking down the economics of luxury — pricing power, aspiration engineering, and why
+              the most irrational purchases are the most calculated ones.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+          <!-- SCRIPT 4 -->
+          <!-- EDIT: Change title, description, and href link -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/10933F63DOfO85wIgU5_uHzqGi7bwO4twYJmjOLaz3pk/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Finance Explainer</div>
+            <div class="script-card-title">
+              Why Most People Stay Broke Even With a Good Salary
+            </div>
+            <div class="script-card-desc">
+              A script on the structural and psychological traps that keep high earners cash-poor —
+              written for international audiences navigating lifestyle inflation.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+        </div><!-- /scripts-grid -->
+      </div><!-- /Finance Explainers -->
+
+
+      <!-- ---- NEWSROOM STYLE REPORTING ---- -->
+      <div class="scripts-category fade-in">
+        <div class="scripts-cat-title">Newsroom Style Reporting</div>
+        <div class="scripts-grid">
+
+          <!-- NEWSROOM SCRIPT 1 -->
+          <!-- EDIT: Change title, description, and href link -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/114Grw1Nxa0LIabeG-Cm9hRDZ3e2p7F44TvJJdp3D0E4/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Newsroom Reporting</div>
+            <div class="script-card-title">
+              Newsroom Report — Sample One
+            </div>
+            <div class="script-card-desc">
+              Fast-paced, source-driven financial reporting in a broadcast newsroom style —
+              structured for on-camera delivery with tight scripting and clear narrative beats.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+          <!-- NEWSROOM SCRIPT 2 -->
+          <!-- EDIT: Change title, description, and href link -->
+          <a class="script-card"
+             href="https://docs.google.com/document/d/1j-YUTpD0Nhb-tqFpnhHlBQsXlWY_jgWsm0DQUfXdr0E/edit?tab=t.0"
+             target="_blank" rel="noopener">
+            <div class="script-card-type">Newsroom Reporting</div>
+            <div class="script-card-title">
+              Newsroom Report — Sample Two
+            </div>
+            <div class="script-card-desc">
+              A second example of financial newsroom writing — precise sourcing, punchy delivery,
+              and a structure built for producers and anchors who don't have time to waste.
+            </div>
+            <div class="script-card-arrow">Read the Script</div>
+          </a>
+
+        </div><!-- /scripts-grid -->
+      </div><!-- /Newsroom -->
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       WHY HIRE ME — VALUE PROPOSITION
+       EDIT: Change the three point headings and descriptions below
+       ================================================================ -->
+  <section id="why">
+    <div class="container">
+      <p class="section-label">Why Work With Me</p>
+      <!-- EDIT: Change heading -->
+      <h2 class="work-heading" style="max-width:680px;">
+        What you actually get when you hire a <span>writer</span>.
+      </h2>
+
+      <div class="why-grid">
+
+        <!-- EDIT: Change title and description for each point -->
+        <div class="why-item">
+          <div class="why-number">01</div>
+          <div class="why-title">Research That Holds Up</div>
+          <div class="why-desc">
+            I don't write from vibes. Every claim is sourced — primary sources, filings, data
+            reports. Your fact-checkers won't have notes. Your audience will trust you more.
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-number">02</div>
+          <div class="why-title">Story First, Finance Second</div>
+          <div class="why-desc">
+            The best finance content doesn't feel like finance. It feels like a story happening to
+            happen about money. I build the narrative first, then load it with the numbers that
+            actually matter.
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-number">03</div>
+          <div class="why-title">Proven at Scale</div>
+          <div class="why-desc">
+            Three million views on a single Short. Ten million across the body of work. This isn't
+            theory — it's a track record from one of the most competitive finance content markets
+            on the planet.
+          </div>
+        </div>
+
+      </div><!-- /why-grid -->
+
+      <!-- EDIT: Change market labels as needed -->
+      <p class="section-label" style="margin-top: 64px; margin-bottom: 0;">Currently open to work in</p>
+      <div class="markets-bar" style="margin-top: 16px;">
+        <span class="market-tag">India</span>
+        <span class="market-tag">United States</span>
+        <span class="market-tag">United Kingdom</span>
+        <span class="market-tag">Remote / Async</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       CONTACT
+       EDIT: Change headline, subtext, and all contact details below
+       ================================================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+
+        <!-- EDIT: Change contact headline -->
+        <h2 class="contact-headline display">
+          Let's make something<br><span>people watch.</span>
+        </h2>
+
+        <!-- EDIT: Change contact subtext -->
+        <p class="contact-sub">
+          If you're building a finance channel, running a newsroom, or looking for a writer who can
+          hold an audience's attention through a 12-minute explainer on monetary policy —
+          drop me a line.
+        </p>
+
+        <div class="contact-links">
+
+          <div class="contact-link-row">
+
+            <!-- EDIT: Change email address (appears twice — in href and in visible text) -->
+            <a class="contact-item" href="mailto:shivvanshiraj@gmail.com">
+              <span class="contact-item-icon">✉</span>
+              shivvanshiraj@gmail.com
+            </a>
+
+            <!-- EDIT: Change phone number (appears twice) -->
+            <a class="contact-item" href="tel:+917489429475">
+              <span class="contact-item-icon">✆</span>
+              +91 74894 29475
+            </a>
+
+            <!-- EDIT: Change LinkedIn URL (appears twice) -->
+            <a class="contact-item"
+               href="https://www.linkedin.com/in/raj-shivvanshi-104255204/"
+               target="_blank" rel="noopener">
+              <span class="contact-item-icon">in</span>
+              LinkedIn
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- EDIT: Change email in the href and button text if needed -->
+        <a href="mailto:shivvanshiraj@gmail.com" class="contact-cta">Send Me an Email</a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       FOOTER
+       EDIT: Change your name and the tagline below
+       ================================================================ -->
+  <footer>
+    <div class="container footer-inner">
+      <!-- EDIT: Change name -->
+      <span class="footer-name">Raj Shivvanshi</span>
+      <!-- EDIT: Change footer note -->
+      <span class="footer-note">Finance Scriptwriter · Mumbai, India</span>
+    </div>
+  </footer>
+
+
+  <!-- ================================================================
+       SCROLL ANIMATION — No need to edit this
+       ================================================================ -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
